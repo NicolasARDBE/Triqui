@@ -1,26 +1,29 @@
 package com.example.triquinr
 
-import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.triquinr.databinding.ActivityMainBinding
+import com.example.triquinr.databinding.ActivityTriquiBinding
 
-private lateinit var binding: ActivityMainBinding
-
-class MainActivity : AppCompatActivity() {
+private lateinit var binding: ActivityTriquiBinding
+var posiciones = IntArray(9) { index -> 0 + index }
+var cont: Int = 0
+class TriquiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        val colorInicial = ColorStateList.valueOf(Color.BLACK)
-        val colorUno = ColorStateList.valueOf(Color.RED)
-        val colorDos = ColorStateList.valueOf(Color.BLUE)
-        var posiciones = IntArray(9) { index -> 0 + index }
-        var cont: Int = 0
+
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityTriquiBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        juegoNuevo()
+        logicaJuego()
+    }
+
+    fun juegoNuevo(){
         binding.button10.setOnClickListener(){
+            val colorInicial = ColorStateList.valueOf(Color.BLACK)
             cont = 0
             posiciones = IntArray(9) { index -> 0 + index }
 
@@ -64,7 +67,11 @@ class MainActivity : AppCompatActivity() {
             binding.button8.isClickable = true
             binding.button9.isClickable = true
         }
+    }
 
+    fun logicaJuego(){
+        val colorUno = ColorStateList.valueOf(Color.RED)
+        val colorDos = ColorStateList.valueOf(Color.BLUE)
         binding.button1.setOnClickListener(){
             if(cont%2==0){
                 posiciones[0] = -1
@@ -262,37 +269,37 @@ class MainActivity : AppCompatActivity() {
             binding.button9.isClickable = false
         }
     }
-}
 
-fun gano(posiciones: IntArray):Boolean{
-    if(posiciones[0]==posiciones[1] && posiciones[0]==posiciones[2]){
-        return true
-    } else if(posiciones[3]==posiciones[4] && posiciones[3]==posiciones[5]){
-        return true
-    } else if(posiciones[6]==posiciones[7] && posiciones[6]==posiciones[8]){
-        return true
-    } else if(posiciones[0]==posiciones[3] && posiciones[0]==posiciones[6]){
-        return true
-    } else if(posiciones[1]==posiciones[4] && posiciones[1]==posiciones[7]){
-        return true
-    } else if(posiciones[2]==posiciones[5] && posiciones[2]==posiciones[8]){
-        return true
-    } else if(posiciones[0]==posiciones[4] && posiciones[0]==posiciones[8]){
-        return true
-    } else if(posiciones[2]==posiciones[4] && posiciones[2]==posiciones[6]){
-        return true
+    fun gano(posiciones: IntArray):Boolean{
+        if(posiciones[0]==posiciones[1] && posiciones[0]==posiciones[2]){
+            return true
+        } else if(posiciones[3]==posiciones[4] && posiciones[3]==posiciones[5]){
+            return true
+        } else if(posiciones[6]==posiciones[7] && posiciones[6]==posiciones[8]){
+            return true
+        } else if(posiciones[0]==posiciones[3] && posiciones[0]==posiciones[6]){
+            return true
+        } else if(posiciones[1]==posiciones[4] && posiciones[1]==posiciones[7]){
+            return true
+        } else if(posiciones[2]==posiciones[5] && posiciones[2]==posiciones[8]){
+            return true
+        } else if(posiciones[0]==posiciones[4] && posiciones[0]==posiciones[8]){
+            return true
+        } else if(posiciones[2]==posiciones[4] && posiciones[2]==posiciones[6]){
+            return true
+        }
+        return false
     }
-    return false
-}
 
-fun bloquear(){
-    binding.button1.isEnabled = false;
-    binding.button2.isEnabled = false;
-    binding.button3.isEnabled = false;
-    binding.button4.isEnabled = false;
-    binding.button5.isEnabled = false;
-    binding.button6.isEnabled = false;
-    binding.button7.isEnabled = false;
-    binding.button8.isEnabled = false;
-    binding.button9.isEnabled = false;
+    fun bloquear(){
+        binding.button1.isEnabled = false;
+        binding.button2.isEnabled = false;
+        binding.button3.isEnabled = false;
+        binding.button4.isEnabled = false;
+        binding.button5.isEnabled = false;
+        binding.button6.isEnabled = false;
+        binding.button7.isEnabled = false;
+        binding.button8.isEnabled = false;
+        binding.button9.isEnabled = false;
+    }
 }

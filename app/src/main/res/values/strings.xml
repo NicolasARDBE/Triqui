@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">triquiNR</string>
+    <string name="app_name">triquiNR </string>
+    <string name="j1">Jugador Uno(X)</string>
+    <string name="j2">Jugador Dos(O)</string>
+    <string name="juego_nuevo">Juego Nuevo</string>
+    <string name="ticTacToe">Triqui</string>
+    <string name="greet">Random Greet</string>
+    <string name="paises">Countries</string>
+
+    <string name="sFrances">Salut</string>
+    <string name="sEspanol">Hola</string>
+    <string name="Italiano">Ciao</string>
+    <string name="sAleman">Halo</string>
+    <string name="sPortugues">Oi</string>
+
+    <string-array name="idiomass">
+        <item>Francés</item>
+        <item>Alemán</item>
+        <item>Español</item>
+        <item>Italiano</item>
+        <item>Portugués</item>
+        <!-- Agrega más elementos si es necesario -->
+    </string-array>
 </resources>
