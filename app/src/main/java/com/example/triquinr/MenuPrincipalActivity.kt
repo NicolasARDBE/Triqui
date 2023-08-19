@@ -11,7 +11,6 @@ class MenuPrincipalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuPrincipalBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         binding.ticTacToe.setOnClickListener(){
             var intent = Intent(baseContext, TriquiActivity::class.java)
             startActivity(intent)
@@ -20,6 +19,10 @@ class MenuPrincipalActivity : AppCompatActivity() {
             val selSpinner = binding.idioma.selectedItem.toString()
             var intent = Intent(baseContext, GreetActivity::class.java)
             intent.putExtra("seleccion", selSpinner)
+            startActivity(intent)
+        }
+        binding.paises.setOnClickListener(){
+            var intent = Intent(baseContext, PaisesActivity::class.java)
             startActivity(intent)
         }
         }

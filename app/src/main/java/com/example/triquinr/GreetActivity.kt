@@ -11,7 +11,10 @@ class GreetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGreetBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        seleccionarSaludo()
+    }
 
+    fun seleccionarSaludo(){
         val seleccion = getIntent().getStringExtra("seleccion")
         when (seleccion) {
             "Francés" -> {
